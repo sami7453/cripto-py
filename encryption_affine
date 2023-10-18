@@ -1,0 +1,94 @@
+def encryption_affine(text, a, b):
+    alphabet_maj = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    alphabet_min = 'abcdefghijklmnopqrstuvwxyz'
+    result = []
+
+    for char in text:
+        if char in alphabet_maj:
+            index = alphabet_maj.index(char)
+            encrypted_index = (a * index + b) % 26
+            result.append(alphabet_maj[encrypted_index])
+        elif char in alphabet_min:
+            index = alphabet_min.index(char)
+            encrypted_index = (a * index + b) % 26
+            result.append(alphabet_min[encrypted_index])
+        else:
+            result.append(char)
+
+    return ''.join(result)
+
+def decryption_affine(text, a, b):
+    alphabet_maj = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    alphabet_min = 'abcdefghijklmnopqrstuvwxyz'
+    result = []
+
+    mod_inverse_a = -1
+    for i in range(26):
+        if (a * i) % 26 == 1:
+            mod_inverse_a = i
+            break
+
+    if mod_inverse_a == -1:
+        raise ValueError("L'inverse modulaire de 'a' n'existe pas. Le déchiffrement n'est pas possible.")
+
+    for char in text:
+        if char in alphabet_maj:
+            index = alphabet_maj.index(char)
+            decrypted_index = (mod_inverse_a * (index - b)) % 26
+            result.append(alphabet_maj[decrypted_index])
+        elif char in alphabet_min:
+            index = alphabet_min.index(char)
+            decrypted_index = (mod_inverse_a * (index - b)) % 26
+            result.append(alphabet_min[decrypted_index])
+        else:
+            result.append(char)
+
+    return ''.join(result)
+
+
+def main_program():
+    print("Choisissez un algorithme:")
+    print("1. César")
+    print("2. Affine")
+    print("3. Substitution")
+    choice = input("Entrez le numéro de votre choix: ")
+
+    if choice == "1":
+        key = int(input("Entrez le décalage pour l'algorithme de César: "))
+    elif choice == "2":
+        key1 = int(input("Entrez la clé 'a' pour l'algorithme affine: "))
+        key2 = int(input("Entrez la clé 'b' pour l'algorithme affine: "))
+    elif choice == "3":
+        print("Note: Pour l'algorithme de substitution, vous pouvez seulement chiffrer le texte.")
+
+    if choice in ["1", "2"]:
+        action = input("Souhaitez-vous chiffrer ou déchiffrer? (c/d): ")
+    else:
+        action = "c"
+
+    text = input("Entrez le texte: ")
+
+    try:
+        if choice == "1":
+            # Ici, vous devez ajouter les fonctions de chiffrement et de déchiffrement de César si vous les avez.
+            pass
+        elif choice == "2":
+            if action == "c":
+                result = encryption_affine(text, key1, key2)
+            else:
+                result = decryption_affine(text, key1, key2)
+        elif choice == "3":
+            # Ici, vous devez ajouter la fonction de chiffrement de substitution si vous l'avez.
+            pass
+
+        print(f"Résultat: {result}")
+
+    except Exception as e:
+        print(f"Erreur: {e}")
+
+    again = input("Souhaitez-vous exécuter le programme à nouveau? (o/n): ")
+    if again.lower() == "o":
+        main_program()
+
+if __name__ == "__main__":
+    main_program()
