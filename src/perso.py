@@ -28,7 +28,6 @@ def encryption_perso(texte, cle, paterne):
         if (ord(caractere) >= ord('a') and ord(caractere) <= ord('z')) or (ord(caractere) >= ord('A') and ord(caractere) <= ord('Z')):
             if (i + 1) % paterne == 0:
                 changer_de_sens = not changer_de_sens
-    print("Chaîne chiffrée :", texte_chiffre)
     return texte_chiffre
 
 # Déchiffrement prenant en compte une chaine de caractère, une cle et un paterne. Il s'agit d'une fonction qui déchiffre
@@ -62,7 +61,4 @@ def decryption_perso(texte_chiffre, cle, paterne):
         if (ord(caractere_chiffre) >= ord('a') and ord(caractere_chiffre) <= ord('z')) or (ord(caractere_chiffre) >= ord('A') and ord(caractere_chiffre) <= ord('Z')):
             if (i + 1) % paterne == 0:
                 changer_de_sens = not changer_de_sens
-    print("Chaîne déchiffrée :", texte_dechiffre)
     return texte_dechiffre
-
-
