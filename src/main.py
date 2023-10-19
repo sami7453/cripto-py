@@ -1,7 +1,7 @@
 
 from chiffrement_affine import decryption_affine, encryption_affine
 from chiffrement_cesar import chiffrement_cesar, dechiffrement_cesar, craquage
-from chiffrement_libre import chiffrement_personnalise
+from chiffrement_libre import chiffrement_personnalise, dechiffrement_personnalise
 from chiffrement_substitution import chiffrement_substitution, dechiffrement_substitution
 
 def main_program():
@@ -24,7 +24,8 @@ def main_program():
         key3 = str(input("Entrez le texte chiffré pour l'algorithme césar: "))
         key4 = str(input("Entrez le mot clair pour l'algorithme césar: "))
     elif choice == "5":
-        print("Note: Pour l'algorithme libre, vous pouvez seulement chiffrer le texte.")
+        key5 = int(input("Entrez la clé pour l'algorithme libre: "))
+        key6 = int(input("Entrez le patern pour l'algorithme libre: "))
 
 
 
@@ -58,8 +59,10 @@ def main_program():
             else:
                 pass
         elif choice == "5":
-            result = chiffrement_personnalise(text)
-            pass
+            if action == "c":
+                result = chiffrement_personnalise(text, key5, key6)
+            else:
+                result = dechiffrement_personnalise(text, key5, key6)
 
 
         print(f"Résultat: {result}")
