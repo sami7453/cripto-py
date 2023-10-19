@@ -1,7 +1,7 @@
 # Chiffrement qui prend en compte une chaine de caractère, une cle et un paterne. La cle est le décalage et le paterne
 # est au bout de combien de caractère on change le sens du décalage en passant du + au - et du - au +...
 
-def chiffrement_personnalise(texte, cle, paterne):
+def encryption_perso(texte, cle, paterne):
     texte_chiffre = ""
     decalage = 0
     changer_de_sens = False
@@ -31,15 +31,11 @@ def chiffrement_personnalise(texte, cle, paterne):
     print("Chaîne chiffrée :", texte_chiffre)
     return texte_chiffre
 
-
-
-
 # Déchiffrement prenant en compte une chaine de caractère, une cle et un paterne. Il s'agit d'une fonction qui déchiffre
 # la précédente. Alors si vous souhaiter déchiffrer le texte de la fonction précédente, il faut que la cle et le paterne
 # des 2 fonctions soient identiques.
 
-
-def dechiffrement_personnalise(texte_chiffre, cle, paterne):
+def decryption_perso(texte_chiffre, cle, paterne):
     texte_dechiffre = ""
     decalage = 0
     changer_de_sens = False

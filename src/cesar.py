@@ -1,4 +1,4 @@
-def chiffrement_cesar(texte, decalage):
+def encryption_cesar(texte, decalage):
     texte_final = ""
 
     for lettre in texte:
@@ -17,7 +17,7 @@ def chiffrement_cesar(texte, decalage):
             texte_final += lettre                           # Conserver les caractères non alphabétiques tel quel
     return texte_final
 
-def dechiffrement_cesar(texte, decalage):
+def decryption_cesar(texte, decalage):
     texte_final = ""
 
     for lettre in texte:
@@ -38,7 +38,7 @@ def dechiffrement_cesar(texte, decalage):
 
 def craquage(texte_chiffre, mot_clair):
     for decalage in range(26):                              # Pour chaque décalage possible
-        texte_dechiffre = dechiffrement_cesar(texte_chiffre, decalage)
+        texte_dechiffre = decryption_cesar(texte_chiffre, decalage)
         if mot_clair in texte_dechiffre:
             print(f"Decalage trouvé : {decalage}")
             print(f"Texte déchiffré : {texte_dechiffre}")
