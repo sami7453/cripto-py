@@ -1,8 +1,8 @@
 
-from chiffrement_affine import decryption_affine, encryption_affine
-from chiffrement_cesar import chiffrement_cesar, dechiffrement_cesar, craquage
-from chiffrement_libre import chiffrement_personnalise, dechiffrement_personnalise
-from chiffrement_substitution import chiffrement_substitution, dechiffrement_substitution
+from affine import decryption_affine, encryption_affine
+from cesar import chiffrement_cesar, dechiffrement_cesar, craquage
+from perso import chiffrement_personnalise, dechiffrement_personnalise
+from substitution import chiffrement_substitution, dechiffrement_substitution
 
 def main_program():
     print("Choisissez un algorithme ou une methode:")
