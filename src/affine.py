@@ -1,6 +1,6 @@
 def encryption_affine(text, a, b):
     alphabet_maj = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    alphabet_min = 'abcdefghijklmnopqrstuvwxyz'
+    alphabet_min = alphabet_maj.lower()
     result = []
 
     for char in text:
@@ -19,7 +19,7 @@ def encryption_affine(text, a, b):
 
 def decryption_affine(text, a, b):
     alphabet_maj = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    alphabet_min = 'abcdefghijklmnopqrstuvwxyz'
+    alphabet_min = alphabet_maj.lower()
     result = []
 
     mod_inverse_a = -1
@@ -29,7 +29,7 @@ def decryption_affine(text, a, b):
             break
 
     if mod_inverse_a == -1:
-        raise ValueError("L'inverse modulaire de 'a' n'existe pas. Le déchiffrement n'est pas possible.")
+        raise ValueError("The modular inverse of 'a' does not exist. Decryption is not possible.")
 
     for char in text:
         if char in alphabet_maj:
