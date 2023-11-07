@@ -1,25 +1,24 @@
-def encryption_substitution(texte):
-    mots = texte.split()
+def encryption_substitution(text):
+    words = text.split()
     list_index = []
     dico = {}
     i = 0
 
-    for mot in mots:
-        if mot not in dico.values():
-            dico[i] = mot
+    for word in words:
+        if word not in dico.values():
+            dico[i] = word
             i += 1
 
     inverse_dico = {value: key for key, value in dico.items()}
 
-    for mot in mots:
-        list_index.append(inverse_dico[mot])
+    for word in words:
+        list_index.append(inverse_dico[word])
 
     return list_index, dico
 
 def decryption_substitution(list_index, dico):
-    mots_decrypte = []
+    decrypted_words = []
     for index in list_index:
-        mots_decrypte.append(dico[index])
+        decrypted_words.append(dico[index])
 
-    phrase = " ".join(mots_decrypte)
-    return phrase
+    return " ".join(mots_decrypte)
